@@ -19,13 +19,14 @@
   <script>
     let questions = [], current = 0, correct = 0;
 
-   fetch("https://script.google.com/macros/s/AKfycbzDaysYKENS4AZYny2YRY0rTuOMmCybHXeAHozEl7RWZ0Z2FAAIuBX5jU7sCJ65GGRp/exec")
+    fetch("https://script.google.com/macros/s/AKfycbzDaysYKENS4AZYny2YRY0rTuOMmCybHXeAHozEl7RWZ0Z2FAAIuBX5jU7sCJ65GGRp/exec")
       .then(res => res.json())
       .then(data => {
         questions = data;
         showQuestion();
       }).catch(err => {
-        document.getElementById("quiz").innerHTML = "❌ Ma'lumot yuklab bo'lmadi. Iltimos, Web App URL yoki Google Sheets sozlamasini tekshiring.";
+        document.getElementById("quiz").innerHTML = 
+          "❌ Ma'lumot yuklab bo'lmadi. Iltimos, Web App URL yoki Google Sheets sozlamasini tekshiring.";
         console.error("Fetch error:", err);
       });
 
@@ -50,7 +51,7 @@
 
     function showResult() {
       document.getElementById("quiz").innerHTML = "";
-      document.getElementById("result").innerHTML =
+      document.getElementById("result").innerHTML = 
         `✅ Natija: ${correct} ta to‘g‘ri / ${questions.length} ta<br>` +
         `Foiz: ${(correct / questions.length * 100).toFixed(1)}%`;
     }
