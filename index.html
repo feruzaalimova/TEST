@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,11 +34,11 @@
     function showQuestion() {
       const q = questions[current];
       document.getElementById("quiz").innerHTML =
-        `<div class="question">${current + 1}. ${q.question}</div>` +
+        '<div class="question">' + (current + 1) + '. ' + q.question + '</div>' +
         q.options.map((opt, index) =>
-          `<div class="option"><label><input type="radio" name="q" value="${opt}"> ${String.fromCharCode(65 + index)}. ${opt}</label></div>`
+          `<div class="option"><label><input type="radio" name="q" value="${String.fromCharCode(65 + index)}"> ${String.fromCharCode(65 + index)}. ${opt}</label></div>`
         ).join('') +
-        `<button onclick="next()">Keyingisi</button>`;
+        '<button onclick="next()">Keyingisi</button>';
     }
 
     function next() {
@@ -52,7 +53,7 @@
     function showResult() {
       document.getElementById("quiz").innerHTML = "";
       document.getElementById("result").innerHTML =
-        `✅ Natija: ${correct} ta to‘g‘ri / ${questions.length} ta<br>` +
+        '✅ Natija: ' + correct + ' ta to‘g‘ri / ' + questions.length + ' ta<br>' +
         `Foiz: ${(correct / questions.length * 100).toFixed(1)}%`;
     }
   </script>
